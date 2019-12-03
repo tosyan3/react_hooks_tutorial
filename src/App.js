@@ -1,37 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0);
-  const [second_count, setSecondCount] = useState(0);
-  const [second_text, setCountText] = useState({text:"Help! Push Second Button"});
-
-  const onclickFunction = () => {
-    setSecondCount(second_count + 1);
-    setCountText({text:"Thank you for putting button!!!!"})
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = { 
+      count: 0
+    };
   }
 
-  useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  });
-
-  return (
-  <div className="App">
-      <header className="App-header">
-        <p>You clicked {count} times</p>
-        <button onClick={() => setCount(count + 1)}>
+    render(){
+      return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={() => this.setState({ count: this.state.count + 1})}>
           Click me
         </button>
-        <p>
-          {second_text.text}.
-          Yout clicked {second_count} times
-        </p>
-        <button onClick={onclickFunction}>
-          Click me.Second button
-        </button>
-      </header>
-    </div>
-  );
-}
-
+      </div>
+      );
+    }
+  }
 export default App;
