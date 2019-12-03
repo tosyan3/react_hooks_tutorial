@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -10,6 +10,10 @@ function App() {
     setSecondCount(second_count + 1);
     setCountText({text:"Thank you for putting button!!!!"})
   }
+
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  });
 
   return (
   <div className="App">
