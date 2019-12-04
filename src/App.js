@@ -8,7 +8,14 @@ class App extends React.Component {
       count: 0
     };
   }
-
+  
+  componentDidMount(){
+    document.title = `You clicked ${this.state.count} times`;
+  }
+  componentDidUpdate(){
+    document.title = `You clicked ${this.state.count} times`;
+  }
+  
     render(){
       return (
       <div>
